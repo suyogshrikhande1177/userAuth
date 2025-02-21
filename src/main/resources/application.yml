@@ -1,0 +1,48 @@
+server:
+  port: 8082
+spring:
+  application:
+    name: userAuth
+  datasource:
+    url: jdbc:mysql://localhost:3306/mithansh_buildcone_test?createDatabaseIfNotExist=true&useUnicode=true&characterEncoding=utf-8
+    username: root
+    password: root
+    hikari:
+      maximum-pool-size: 6
+
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+    properties:
+      enable_lazy_load_no_trans: true
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL8Dialect
+        jdbc:
+          lob:
+            non_contextual_creation: true
+  liquibase: #liquibase changelog properties
+    enabled: true
+    change-log: classpath:/changelog/db.changelog-master.yaml
+  servlet:
+    multipart:
+      enabled: true
+      max-file-size: 100MB
+      max-request-size: 100MB
+
+bezkoder:
+  app:
+    jwtSecret: bezKoderSecretKey
+    jwtExpirationMs: 3600000
+
+management:
+  health:
+    circuitBreakers:
+      enabled: true
+  endpoints:
+    web:
+      exposure:
+        include: health
+  endpoint:
+    health:
+      show-details: always
