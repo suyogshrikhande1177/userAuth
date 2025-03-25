@@ -1,0 +1,13 @@
+databaseChangeLog:
+  - changeSet:
+      id: insert-user-roles
+      author: Suyog Shrikhande
+      comment: insert-user-roles.
+      changes:
+        - sqlFile:
+            encoding: utf8
+            endDelimiter: \nGO
+            path: changelog/changes/sql/roles.sql
+            relativeToChangelogFile: false
+            splitStatements: true
+            stripComments: true

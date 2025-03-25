@@ -1,0 +1,6 @@
+databaseChangeLog:
+  - include:
+      file: changelog/changes/userrole.schema.yaml
+  - include:
+      file: changelog/changes/insert-default-roles.yaml
+
