@@ -1,6 +1,5 @@
 package com.practice.userAuth.Security.jwt;
 
-import com.practice.userAuth.Security.srevices.UserDetailsImpl;
 import com.practice.userAuth.Security.srevices.UserDetailsServiceImpl;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;

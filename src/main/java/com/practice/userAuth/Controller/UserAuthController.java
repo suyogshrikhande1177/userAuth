@@ -17,22 +17,18 @@ import com.practice.userAuth.Utils.InitialError;
 import com.practice.userAuth.Utils.SuccessMsg;
 import com.practice.userAuth.exceptions.RecordNotFoundException;
 import com.practice.userAuth.mappers.UserMapper;
-import org.apache.tomcat.util.buf.UEncoder;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
-import org.springframework.security.core.context.SecurityContext;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.Base64;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -41,7 +37,7 @@ import java.util.stream.Collectors;
 @CrossOrigin(origins = "*", maxAge = 3600)
 @RestController
 @RequestMapping("/api/auth")
-public class UserController {
+public class UserAuthController {
     @Autowired
     AuthenticationManager authenticationManager;
 
@@ -58,7 +54,7 @@ public class UserController {
     private JwtUtils jwtUtils;
 
     @Autowired
-    public UserController(JwtUtils jwtUtils) {
+    public UserAuthController(JwtUtils jwtUtils) {
         this.jwtUtils = jwtUtils;
     }
 
