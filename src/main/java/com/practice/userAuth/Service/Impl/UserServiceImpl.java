@@ -6,6 +6,8 @@ import com.practice.userAuth.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 
 @Service
 public class UserServiceImpl implements UserService {
@@ -25,6 +27,12 @@ public class UserServiceImpl implements UserService {
     @Override
     public boolean findEmailId(String email) {
         return userRepository.existsByEmail(email);
+    }
+
+    @Override
+    public List<User> getAllUser() {
+        //List<User> all = userRepository.findAll();
+        return userRepository.findAll();
     }
 
 
